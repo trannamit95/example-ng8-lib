@@ -116,5 +116,8 @@ export class AppHomeComponent {
 }
 ```
 
+# Source code
+#### https://github.com/trannamit95/example-ng8-lib
+
 # Demo
 #### https://github.com/trannamit95/test-ng-lib
