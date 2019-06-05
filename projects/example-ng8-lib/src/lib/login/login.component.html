@@ -1,0 +1,50 @@
+<form>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="form-group m-form__group row">
+        <label class="col-md-3 col-form-label label-form">
+          Username<label class="text-danger">*</label>
+        </label>
+        <div class="col-md-8">
+          <div class="input-group input-group-md m-input-group">
+            <input class="form-control m-input" type="text" name="username" [(ngModel)]="model.username" autocomplete="off">
+          </div>
+        </div>
+      </div>
+      <div class="form-group m-form__group row">
+        <label class="col-md-3 col-form-label label-form">
+          Password<label class="text-danger">*</label>
+        </label>
+        <div class="col-md-8">
+          <div class="input-group input-group-md m-input-group">
+            <input class="form-control m-input" type="text" name="password" [(ngModel)]="model.password" autocomplete="off">
+          </div>
+        </div>
+      </div>
+      <div class="m-login__form-action" style="margin: auto; margin-top: 50px;">
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Submit</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Your information is:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Username: {{model.username}}</p>
+        <p>Password: {{model.password}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

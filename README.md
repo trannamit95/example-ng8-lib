@@ -1,27 +1,120 @@
-# ExampleNg8LibApp
+# ExampleNg8LibModule
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.1.
 
-## Development server
+# Setup
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Add ExampleNg8LibModule module as dependency :
 
-## Code scaffolding
+  ```
+  npm install --save example-ng8-lib
+  ```
+  
+- Import ExampleNg8LibModule:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+  ```
+  //...
+  import { ExampleNg8LibModule } from 'example-ng8-lib';
+  
+  @NgModule({
+    imports: [
+      ExampleNg8LibModule,
+    // ...
+  });
+  ```
 
-## Build
+# Usage
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## HeaderComponent
+```
+<nam-header></nam-header>
+```
+Inputs:
+- `[logo]`
 
-## Running unit tests
+  Set logo url 
+- `[avatar]`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  Set avatar url  
+- `[menus]`
 
-## Running end-to-end tests
+  Set menu list.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+  Example:
+  ```
+  [
+    {name: 'Home', url: '/'},
+    {name: 'About Us', url: '/about'}
+  ]
+  ```
 
-## Further help
+## FooterComponent
+```
+<nam-footer></nam-footer>
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## SideMenuComponent
+```
+<nam-aside-menu></nam-aside-menu>
+```
+Input:
+- `[menus]`
+
+  Set menu list.
+
+  Example:
+  ```
+  [
+    {name: 'Home', url: '/'},
+    {name: 'About Us', url: '/about'}
+  ]
+  ```
+
+## LoginComponent
+```
+<nam-login></nam-login>
+```
+
+# Example
+
+```
+// Component code
+//...
+import { Component } from '@angular/core';
+ 
+@Component({
+  selector: 'app-home',
+  templateUrl: `
+    <nam-header [logo]="logo" [avatar]="avatar" [menus]="headerMenus"></nam-header>
+    <div class="row">
+      <div class="col-md-2">
+        <nam-aside-menu [menus]="sideMenus"></nam-aside-menu>
+      </div>
+      <div class="col-md-10 pt-5">
+        <nam-login></nam-login>
+      </div>
+    </div>
+    <nam-footer></nam-footer>
+  `
+})
+ 
+export class AppHomeComponent {
+  avatar = 'http://www.myiconfinder.com/uploads/iconsets/256-256-6a9a5acd215316d5cd242192f19ba1ca-user.png';
+  logo = 'http://getbootstrap.com/docs/4.3/assets/brand/bootstrap-social.png';
+  headerMenus = [
+    {name: 'Home', url: '/'},
+    {name: 'About Us', url: '/about'},
+    {name: 'Products', url: '/product'},
+    {name: 'Contact', url: '/contact'}
+  ];
+  sideMenus = [
+    {name: 'Home', url: '/'},
+    {name: 'About Us', url: '/about'},
+    {name: 'Products', url: '/product'},
+    {name: 'Contact', url: '/contact'}
+  ];
+}
+```
+
+# Demo
+#### https://github.com/trannamit95/test-ng-lib

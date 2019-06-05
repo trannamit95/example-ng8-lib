@@ -17,6 +17,16 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "example-ng8-lib": [
+        "dist/example-ng8-lib",
+        "dist/example-ng8-lib"
+      ],
+      "example-ng8-lib/*": [
+        "dist/example-ng8-lib/*",
+        "dist/example-ng8-lib/*"
+      ]
+    }
   }
 }

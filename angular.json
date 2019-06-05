@@ -23,9 +23,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -114,6 +118,42 @@
           }
         }
       }
-    }},
+    },
+    "example-ng8-lib": {
+      "projectType": "library",
+      "root": "projects/example-ng8-lib",
+      "sourceRoot": "projects/example-ng8-lib/src",
+      "prefix": "nam",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/example-ng8-lib/tsconfig.lib.json",
+            "project": "projects/example-ng8-lib/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/example-ng8-lib/src/test.ts",
+            "tsConfig": "projects/example-ng8-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/example-ng8-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/example-ng8-lib/tsconfig.lib.json",
+              "projects/example-ng8-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
   "defaultProject": "example-ng8-lib-app"
 }
